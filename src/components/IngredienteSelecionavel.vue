@@ -1,0 +1,32 @@
+<script lang="ts">
+import Tag from "@/components/Tag.vue";
+
+export default {
+  components: { Tag },
+  props: {
+    ingrediente: {type: String, required: true}
+  },
+  data() {
+    return {
+      selecionado: false
+    }
+  }
+}
+</script>
+
+
+<template>
+  <button
+  class="ingrediente"
+  v-on:click="selecionado = !selecionado"
+  :aria-posinset="selecionado"
+  >
+    <Tag :texto="ingrediente" :ativa="selecionado"/>
+  </button>
+</template>
+
+<style scoped>
+.ingrediente {
+  cursor: pointer;
+}
+</style>
